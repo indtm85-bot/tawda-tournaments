@@ -373,6 +373,10 @@ function openAuth(){
 function closeAuth(){
   document.getElementById("authBox").style.display = "none";
 }
+function showAdminPanel(){
+  document.getElementById("adminPanel").style.display = "block";
+  document.querySelector(".auth-buttons").style.display = "none";
+}
 </script>
 
  
@@ -398,10 +402,10 @@ function closeAuth(){
     const password = document.getElementById("password").value;
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        alert("Signup successful 🎉");
-        closeAuth();
-      })
+   .then(() => {
+  closeAuth();
+  showAdminPanel();
+});
       .catch(err => alert(err.message));
   };
 
@@ -411,9 +415,9 @@ function closeAuth(){
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        alert("Login successful ✅");
-        closeAuth();
-      })
+  closeAuth();
+  showAdminPanel();
+})
       .catch(err => alert(err.message));
   };
 </script>
