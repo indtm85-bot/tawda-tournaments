@@ -377,9 +377,8 @@ function showAdminPanel(){
   document.getElementById("adminPanel").style.display = "block";
   document.querySelector(".auth-buttons").style.display = "none";
 }
-</script>
 
- 
+</script>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -402,12 +401,12 @@ function showAdminPanel(){
     const password = document.getElementById("password").value;
 
     createUserWithEmailAndPassword(auth, email, password)
-   .then(() => {
-  closeAuth();
-  showAdminPanel();
-});
+      .then(() => {
+        closeAuth();
+        showAdminPanel();
+      })
       .catch(err => alert(err.message));
-  };
+  }; // ✅ IMPORTANT: signup properly closed here
 
   window.login = function () {
     const email = document.getElementById("email").value;
@@ -415,9 +414,9 @@ function showAdminPanel(){
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-  closeAuth();
-  showAdminPanel();
-})
+        closeAuth();
+        showAdminPanel();
+      })
       .catch(err => alert(err.message));
   };
 </script>
